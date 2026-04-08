@@ -9,7 +9,7 @@ export default function AbacusSection() {
     <section className="abacus-section" id="interactive-abacus">
       <div className="abacus-header">
         <h2 className="abacus-title">
-          Play <span className="abacus-title-accent">Zone</span>
+          The Play <span className="abacus-title-accent">Zone.</span>
         </h2>
         <p className="abacus-subtitle">
           <strong>Try it Yourself!</strong> Toggle the heavenly and earthly beads below to see instant calculations.

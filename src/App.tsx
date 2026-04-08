@@ -26,9 +26,9 @@ function App() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <HeroSection />
-            <AbacusSection />
             <ChampsInAction />
             <Gallery />
+            <AbacusSection />
             <ContactSection />
           </motion.main>
         )}
