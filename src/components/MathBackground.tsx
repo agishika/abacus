@@ -9,54 +9,7 @@ const SYMBOLS = [
   '+', '−', '×', '÷', '∑', '√', 'π', '=', '∞', '%',
 ];
 
-interface FloatingSymbolProps {
-  position: [number, number, number];
-  symbol: string;
-  speed: number;
-  amplitude: number;
-  phase: number;
-  rotSpeed: number;
-  opacity: number;
-  scale: number;
-}
-
-function FloatingSymbol({
-  position,
-  speed,
-  amplitude,
-  phase,
-  rotSpeed,
-  opacity,
-  scale,
-}: FloatingSymbolProps) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const initialY = position[1];
-
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    const t = clock.getElapsedTime();
-
-    // Gentle float on Y
-    meshRef.current.position.y = initialY + Math.sin(t * speed + phase) * amplitude;
-    // Subtle X drift
-    meshRef.current.position.x = position[0] + Math.sin(t * speed * 0.3 + phase) * 0.3;
-    // Slow rotation
-    meshRef.current.rotation.z = Math.sin(t * rotSpeed + phase) * 0.3;
-    meshRef.current.rotation.x = Math.sin(t * rotSpeed * 0.5 + phase) * 0.15;
-  });
-
-  return (
-    <mesh ref={meshRef} position={position} scale={scale}>
-      <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial
-        color="#1e3a8a"
-        transparent
-        opacity={opacity}
-        side={THREE.DoubleSide}
-      />
-    </mesh>
-  );
-}
+// SymbolSprite is used instead of FloatingSymbol to handle custom textures
 
 // ─── Particle field (small dots for depth) ──────────────────────
 function ParticleField() {
@@ -92,6 +45,7 @@ function ParticleField() {
           count={count}
           array={positions}
           itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial
@@ -160,10 +114,22 @@ function SymbolSprite({
   );
 }
 
+// ─── Shared Props for SymbolSprite ───────────────────────────
+interface FloatingSymbolProps {
+  position: [number, number, number];
+  symbol: string;
+  speed: number;
+  amplitude: number;
+  phase: number;
+  rotSpeed: number;
+  opacity: number;
+  scale: number;
+}
+
 // ─── Main 3D Background Scene ───────────────────────────────────
 function Scene() {
   const symbols = useMemo(() => {
-    return SYMBOLS.map((sym, i) => ({
+    return SYMBOLS.map((sym) => ({
       symbol: sym,
       position: [
         (Math.random() - 0.5) * 16,

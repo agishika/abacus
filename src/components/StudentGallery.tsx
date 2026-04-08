@@ -30,10 +30,11 @@ function getInitials(name: string) {
 interface Student {
   id: number;
   name: string;
-  age: number;
   level: string;
-  achievement: string;
-  avatar: string | null;
+  imagePath: string;
+  age?: number;
+  achievement?: string;
+  avatar?: string | null;
 }
 
 interface HexCardProps {
