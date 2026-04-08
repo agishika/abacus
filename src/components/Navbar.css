@@ -1,0 +1,143 @@
+/* ─── Navbar Global Container ──────────────────────────────────── */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+  
+  /* Glassmorphism Effect */
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  
+  transition: all 0.3s ease;
+}
+
+/* ─── Logo Section ────────────────────────────────────────────── */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.navbar-logo-3d-wrapper {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.navbar-logo-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.navbar-logo-accent {
+  color: #3b82f6; /* Champs Blue */
+}
+
+/* ─── Desktop Links ───────────────────────────────────────────── */
+.navbar-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: #cbd5e1;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+  padding: 8px 4px;
+}
+
+.navbar-link:hover {
+  color: #3b82f6;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #3b82f6;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px #3b82f6;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Mobile Hamburger ────────────────────────────────────────── */
+.navbar-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1002;
+  padding: 10px;
+}
+
+/* ─── Mobile Drawer ───────────────────────────────────────────── */
+.navbar-mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 100px 40px 40px 40px;
+  gap: 24px;
+  z-index: 1001;
+}
+
+.navbar-mobile-link {
+  color: #f8fafc;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar-mobile-link:hover {
+  color: #3b82f6;
+}
+
+/* ─── Responsive Queries ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+  
+  .navbar-mobile-toggle {
+    display: block;
+  }
+  
+  .navbar-container {
+    padding: 0 20px;
+  }
+}

@@ -6,12 +6,15 @@ import Gallery from './components/Gallery';
 import ChampsInAction from './components/ChampsInAction';
 import ContactSection from './components/ContactSection';
 import AbacusSection from './components/AbacusSection';
+import Navbar from './components/Navbar';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <>
+      <Navbar />
+
       {/* Loader — fades out when done */}
       {!isLoaded && (
         <KidLoader onComplete={() => setIsLoaded(true)} />
