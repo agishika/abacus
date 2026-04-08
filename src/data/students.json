@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Jane Adams",
+    "imagePath": "/src/assets/students/s1.webp",
+    "level": "Level 1"
+  },
+  {
+    "id": 2,
+    "name": "Alex Mercer",
+    "imagePath": "/src/assets/students/s2.webp",
+    "level": "Level 2"
+  },
+  {
+    "id": 3,
+    "name": "Sam Carter",
+    "imagePath": "/src/assets/students/s3.webp",
+    "level": "Level 1"
+  },
+  {
+    "id": 4,
+    "name": "Taylor Reed",
+    "imagePath": "/src/assets/students/s4.webp",
+    "level": "Level 3"
+  },
+  {
+    "id": 5,
+    "name": "Jordan Lee",
+    "imagePath": "/src/assets/students/s5.webp",
+    "level": "Graduates"
+  }
+]

@@ -1,0 +1,318 @@
+/* ═══════════════════════════════════════════════════════════════
+   ChampsInAction.css — "Champs in Action" Video Section
+   ═══════════════════════════════════════════════════════════════ */
+
+.champs-video-section {
+  position: relative;
+  padding: 5rem 2rem 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* ─── Section Header ──────────────────────────────────────────── */
+.champs-video-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.champs-video-header h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.champs-video-header h2 .header-emoji {
+  display: inline-block;
+  animation: emojiPop 2s ease-in-out infinite;
+}
+
+@keyframes emojiPop {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.15) rotate(-8deg); }
+  50% { transform: scale(1) rotate(0deg); }
+  75% { transform: scale(1.15) rotate(8deg); }
+}
+
+.champs-video-subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: #64748b;
+  font-weight: 500;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ─── Video Container (holds frame + mascot) ──────────────────── */
+.champs-video-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ─── Video Frame (the border card) ───────────────────────────── */
+.champs-video-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  border: 4px solid #1e3a8a;
+  background: linear-gradient(145deg, #eef2ff, #dbeafe);
+  padding: 8px;
+  box-shadow:
+    0 4px 6px -1px rgba(30, 58, 138, 0.12),
+    0 10px 30px -5px rgba(30, 58, 138, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.champs-video-frame:hover {
+  box-shadow:
+    0 8px 12px -2px rgba(30, 58, 138, 0.18),
+    0 16px 40px -8px rgba(30, 58, 138, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Corner decorations */
+.champs-video-frame::before,
+.champs-video-frame::after {
+  content: '✦';
+  position: absolute;
+  font-size: 18px;
+  color: #3b82f6;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.champs-video-frame::before {
+  top: -12px;
+  left: -12px;
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.champs-video-frame::after {
+  bottom: -12px;
+  right: -12px;
+  animation: starTwinkle 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.8; transform: scale(1.3) rotate(180deg); }
+}
+
+/* ─── Responsive Iframe Wrapper ───────────────────────────────── */
+.champs-video-iframe-wrap {
+  position: relative;
+  width: 100%;
+  /* 9:16 aspect ratio for vertical reel */
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.champs-video-iframe-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── 3D Play Button Overlay ──────────────────────────────────── */
+.champs-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.35);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.champs-play-overlay:hover {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+.champs-play-overlay:hover .play-btn-3d {
+  transform: scale(1.1);
+  box-shadow:
+    0 8px 0 #b45309,
+    0 12px 25px rgba(180, 83, 9, 0.5);
+}
+
+.play-btn-3d {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f97316, #ea580c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 6px 0 #c2410c,
+    0 10px 20px rgba(194, 65, 12, 0.4);
+  transition: all 0.15s ease;
+  animation: playBounce 2.5s ease-in-out infinite;
+}
+
+.play-btn-3d:active {
+  transform: translateY(6px) scale(0.95);
+  box-shadow:
+    0 0px 0 #c2410c,
+    0 0px 0px rgba(194, 65, 12, 0.4);
+}
+
+.play-btn-3d svg {
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
+  margin-left: 4px; /* optical centering for play triangle */
+}
+
+@keyframes playBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+/* ─── Mascot ─────────────────────────────────────────────────── */
+.champs-mascot {
+  position: absolute;
+  bottom: -30px;
+  right: -60px;
+  width: 110px;
+  height: 110px;
+  z-index: 4;
+  filter: drop-shadow(0 4px 12px rgba(30, 58, 138, 0.2));
+  animation: mascotFloat 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.champs-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes mascotFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* ─── Speech Bubble ──────────────────────────────────────────── */
+.mascot-speech {
+  position: absolute;
+  bottom: 85px;
+  right: -80px;
+  background: #ffffff;
+  border: 2px solid #1e3a8a;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  white-space: nowrap;
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.1);
+  animation: mascotFloat 3s ease-in-out infinite;
+}
+
+.mascot-speech::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+}
+
+.mascot-speech::before {
+  content: '';
+  position: absolute;
+  bottom: -11px;
+  left: 19px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #1e3a8a;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .champs-video-section {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .champs-video-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .champs-video-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .champs-video-container {
+    max-width: 400px;
+  }
+
+  .champs-mascot {
+    width: 80px;
+    height: 80px;
+    bottom: -20px;
+    right: -30px;
+  }
+
+  .mascot-speech {
+    bottom: 60px;
+    right: -40px;
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .champs-video-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .champs-video-container {
+    max-width: 100%;
+  }
+
+  .champs-mascot {
+    width: 64px;
+    height: 64px;
+    bottom: -16px;
+    right: -10px;
+  }
+
+  .mascot-speech {
+    display: none;
+  }
+
+  .play-btn-3d {
+    width: 56px;
+    height: 56px;
+  }
+
+  .play-btn-3d svg {
+    width: 22px;
+    height: 22px;
+  }
+}

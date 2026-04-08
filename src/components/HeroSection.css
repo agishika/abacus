@@ -1,0 +1,221 @@
+/* ═══════════════════════════════════════════════════════════════
+   HeroSection.css — Champs World Abacus Institute Hero (Light Theme)
+   Palette: #1e3a8a (Champs Blue) · Off-White · Light Mode
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Section ───────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* ─── Content ───────────────────────────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 720px;
+  padding: 80px 24px 60px;
+  gap: 24px;
+}
+
+
+/* ─── Tagline ───────────────────────────────────────────────── */
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #3b82f6;
+  margin-top: 8px;
+}
+
+/* ─── Headline ──────────────────────────────────────────────── */
+.hero-headline {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.hero-headline-accent {
+  background: linear-gradient(
+    135deg,
+    #1e3a8a 0%,
+    #3b82f6 30%,
+    #2563eb 60%,
+    #3b82f6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ─── Description ───────────────────────────────────────────── */
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #475569;
+  max-width: 540px;
+}
+
+.hero-description strong {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ─── CTA Buttons ───────────────────────────────────────────── */
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 13px 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.hero-btn-primary {
+  background: #f97316;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 16px;
+  padding: 16px 36px;
+  box-shadow: 0 8px 0 #c2410c, 0 15px 20px rgba(194, 65, 12, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.1s ease-in-out;
+}
+
+.hero-btn-primary:active {
+  transform: translateY(8px) !important;
+  box-shadow: 0 0px 0 #c2410c, 0 0px 0px rgba(194, 65, 12, 0.4) !important;
+}
+
+.btn-arrow {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.hero-btn-primary:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.5);
+  color: #1e3a8a;
+  border: 1px solid rgba(30, 58, 138, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(30, 58, 138, 0.3);
+  color: #0f172a;
+}
+
+/* ─── Trust Badges ──────────────────────────────────────────── */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 16px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.trust-number {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.trust-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero-content {
+    padding: 60px 20px 40px;
+    gap: 20px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-trust {
+    gap: 16px;
+    padding: 14px 20px;
+  }
+
+  .trust-number {
+    font-size: 18px;
+  }
+}

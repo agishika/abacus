@@ -1,0 +1,252 @@
+/* ═══════════════════════════════════════════════════════════════
+   AbacusLoader.css — Antigravity Abacus Loader Styles
+   Palette: Champs World Blue (#1e3a8a)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Container ─────────────────────────────────────────────── */
+.abacus-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.loader-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 45%,
+    rgba(240, 245, 255, 0.95) 0%,
+    rgba(220, 230, 245, 0.98) 50%,
+    rgba(248, 250, 252, 1) 100%
+  );
+  z-index: -1;
+}
+
+/* ─── Assembly ──────────────────────── */
+.abacus-assembly {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Abacus Structure (Frame & Rods) ───────────────────────── */
+.abacus-structure {
+  position: absolute;
+  width: 280px;
+  height: 220px;
+  z-index: 1;
+}
+
+/* Main outer wooden/metallic frame */
+.abacus-outer-frame {
+  position: absolute;
+  inset: 0;
+  border: 8px solid;
+  border-radius: 8px;
+  border-image-slice: 1;
+  border-width: 10px;
+  border-image-source: linear-gradient(135deg, #2d4fa0 0%, #1e3a8a 30%, #15296b 70%, #1e3a8a 100%);
+  box-shadow:
+    0 0 20px rgba(30, 58, 138, 0.5),
+    0 0 40px rgba(30, 58, 138, 0.2),
+    inset 0 0 15px rgba(100, 150, 255, 0.2);
+}
+
+/* Horizontal dividing beam */
+.abacus-beam {
+  position: absolute;
+  top: 60px; /* Separates heaven and earth beads */
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #2d4fa0 0%, #1e3a8a 30%, #15296b 70%, #1e3a8a 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 1px 3px rgba(255,255,255,0.2);
+}
+
+/* Vertical Rods */
+.abacus-rod-vertical {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  background: linear-gradient(
+    90deg,
+    #1b2d4c 0%,
+    #4a6bc5 30%,
+    #2d4fa0 70%,
+    #1b2d4c 100%
+  );
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.4);
+}
+
+.rod-inner-glow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0.2) 20%,
+    rgba(56, 189, 248, 0.4) 50%,
+    rgba(56, 189, 248, 0.2) 80%,
+    transparent 100%
+  );
+}
+
+/* ─── Beads ─────────────────────────────────────────────────── */
+.abacus-bead {
+  position: absolute;
+  width: 28px;
+  height: 18px;
+  /* Adjusting top/left so that x,y coordinates point to center of bead */
+  margin-left: -14px;
+  margin-top: -9px;
+  border-radius: 9px;
+  z-index: 2;
+  cursor: default;
+
+  background: radial-gradient(
+    circle at 30% 20%,
+    #ffffff 0%,
+    #f8faff 25%,
+    #e8eef8 50%,
+    #d0daf0 75%,
+    #c0cce8 100%
+  );
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.3),
+    0 2px 5px rgba(0, 0, 0, 0.2),
+    inset 0 -2px 5px rgba(30, 58, 138, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+}
+
+.bead-highlight {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 8px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transform: rotate(-10deg);
+}
+
+.bead-highlight-secondary {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  width: 4px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.bead-shadow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 70%
+  );
+}
+
+.bead-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle at center,
+    rgba(56, 189, 248, 0.25) 0%,
+    rgba(56, 189, 248, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ─── Snap Flash ────────────────────────────────────────────── */
+.snap-flash {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  border-radius: 20%;
+  background: radial-gradient(
+    circle at center,
+    rgba(56, 189, 248, 0.4) 0%,
+    rgba(30, 58, 138, 0.15) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Progress UI ───────────────────────────────────────────── */
+.loader-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.loader-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #64748b;
+  text-shadow: 0 0 14px rgba(30, 58, 138, 0.1);
+}
+
+.loader-percent {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(180deg, #1e3a8a, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(30, 58, 138, 0.2));
+  line-height: 1;
+}
+
+.loader-bar-track {
+  width: 160px;
+  height: 1.5px;
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(30, 58, 138, 0.4), rgba(56, 189, 248, 0.7));
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
