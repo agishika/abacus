@@ -1,18 +1,16 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import KidLoader from './components/KidLoader';
-import HeroSection from './components/HeroSection';
-import Gallery from './components/Gallery';
-import ChampsInAction from './components/ChampsInAction';
-import ContactSection from './components/ContactSection';
-import AbacusSection from './components/AbacusSection';
 import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import PlayZonePage from './pages/PlayZonePage';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
 
       {/* Loader — fades out when done */}
@@ -28,15 +26,14 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <HeroSection />
-            <ChampsInAction />
-            <Gallery />
-            <AbacusSection />
-            <ContactSection />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/play" element={<PlayZonePage />} />
+            </Routes>
           </motion.main>
         )}
       </AnimatePresence>
-    </>
+    </BrowserRouter>
   );
 }
 

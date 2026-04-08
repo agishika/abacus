@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -52,10 +53,23 @@ function Logo3D() {
 // ─── Main Navbar Component ─────────────────────────────────────
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Smooth scroll handler
-  const handleScrollTo = (id: string) => {
+  // Route and Smooth scroll handler
+  const handleNavClick = (id: string, isSeparateRoute?: boolean) => {
     setIsMobileOpen(false); // Close mobile menu if open
+
+    if (isSeparateRoute) {
+      navigate('/play');
+      return;
+    }
+
+    // If we're on the play zone page and need to go back home
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+      return;
+    }
     
     // Slight delay to allow layout shifts or menu closing
     setTimeout(() => {
@@ -75,7 +89,7 @@ export default function Navbar() {
     { label: 'Home', id: 'hero-section' },
     { label: 'About', id: 'champs-in-action' },
     { label: 'Gallery', id: 'student-gallery' },
-    { label: 'Play Zone', id: 'interactive-abacus' },
+    { label: 'Play Zone', id: 'interactive-abacus', isSeparateRoute: true },
     { label: 'Contact', id: 'contact' },
   ];
 
@@ -85,7 +99,7 @@ export default function Navbar() {
         {/* Left: 3D Logo & Brand Name */}
         <div 
           className="navbar-logo" 
-          onClick={() => handleScrollTo('hero-section')}
+          onClick={() => handleNavClick('hero-section')}
         >
           <Logo3D />
           <span className="navbar-logo-text">
@@ -99,7 +113,7 @@ export default function Navbar() {
             <div
               key={link.id}
               className="navbar-link"
-              onClick={() => handleScrollTo(link.id)}
+              onClick={() => handleNavClick(link.id, link.isSeparateRoute)}
             >
               {link.label}
             </div>
@@ -137,7 +151,7 @@ export default function Navbar() {
               <div
                 key={`mobile-${link.id}`}
                 className="navbar-mobile-link"
-                onClick={() => handleScrollTo(link.id)}
+                onClick={() => handleNavClick(link.id, link.isSeparateRoute)}
               >
                 {link.label}
               </div>
