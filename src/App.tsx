@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import Gallery from './components/Gallery';
 import ChampsInAction from './components/ChampsInAction';
 import ContactSection from './components/ContactSection';
+import AbacusSection from './components/AbacusSection';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,6 +26,7 @@ function App() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <HeroSection />
+            <AbacusSection />
             <ChampsInAction />
             <Gallery />
             <ContactSection />
